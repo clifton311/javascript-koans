@@ -68,6 +68,12 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
     var sum = 233168;    /* try chaining range() and reduce() */
+    _.range(1,1000).reduce(function(acc,curr){
+      if (curr % 3 === 0 || curr % 5 ===0) {
+        acc += curr;
+        return acc;
+      }
+    },0)
 
     expect(233168).toBe(233168);
   });
@@ -82,20 +88,24 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   it("should count the ingredient occurrence (functional)", function () {
     var ingredientCount = { "{ingredient name}": 0 };
-
+      products.map(function(ingredient){
+        return ingredient.ingredients.flatten().reduce(function(acc, curr){
+          return ingredientCount[curr] = (ingredientCount[curr] || 0) + 1;
+        })
+      })
     /* chain() together map(), flatten() and reduce() */
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
+  
   it("should find the largest prime factor of a composite number", function () {
   
   });
@@ -116,5 +126,5 @@ describe("About Applying What We Have Learnt", function() {
   it("should find the 10001st prime", function () {
 
   });
-  */
+  
 });
