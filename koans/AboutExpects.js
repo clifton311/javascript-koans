@@ -7,7 +7,7 @@ describe("About Expects", function() {
 
   // To understand reality, we must compare our expectations against reality.
   it("should expect equality", function() { 
-	  var expectedValue = 1 +1;
+	  var expectedValue = 1 + 1;
 	  var actualValue = 1 + 1;
 	
 	  expect(actualValue === expectedValue).toBeTruthy();
@@ -33,6 +33,6 @@ describe("About Expects", function() {
 
   // Sometimes we will ask you to fill in the values.
   it("should have filled in values", function() {
-	  expect(1 + 1).toEqual(1 + 1);
+	  expect(actualValue).toEqual(expectedValue);
   });
 });
